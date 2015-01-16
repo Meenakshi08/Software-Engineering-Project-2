@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer_id: 1
+  card_number: 1
+  expiry: 2014-11-10
+  owner_name: MyString
+
+two:
+  customer_id: 1
+  card_number: 1
+  expiry: 2014-11-10
+  owner_name: MyString

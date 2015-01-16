@@ -1,0 +1,160 @@
+"<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Action Controller: Exception caught</title>
+    <style>
+		body {
+			background-color: #FAFAFA;
+			color: #333;
+			margin: 0px;
+		}
+		body, p, ol, ul, td {
+			font-family: helvetica, verdana, arial, sans-serif;
+			font-size: 13px;
+			line-height: 18px;
+		}
+		pre {
+			font-size: 11px;
+			white-space: pre-wrap;
+		}
+		pre.box {
+			border: 1px solid #EEE;
+			padding: 10px;
+			margin: 0px;
+			width: 958px;
+		}
+		header {
+			color: #F0F0F0;
+			background: #C52F24;
+			padding: 0.5em 1.5em;
+		}
+		h1 {
+			margin: 0.2em 0;
+			line-height: 1.1em;
+			font-size: 2em;
+		}
+		h2 {
+			color: #C52F24;
+			line-height: 25px;
+		}
+		.details {
+			border: 1px solid #D0D0D0;
+			border-radius: 4px;
+			margin: 1em 0px;
+			display: block;
+			width: 978px;
+		}
+		.summary {
+			padding: 8px 15px;
+			border-bottom: 1px solid #D0D0D0;
+			display: block;
+		}
+		.details pre {
+			margin: 5px;
+			border: none;
+		}
+		#container {
+			box-sizing: border-box;
+			width: 100%;
+			padding: 0 1.5em;
+		}
+		.source * {
+			margin: 0px;
+			padding: 0px;
+		}
+		.source {
+			border: 1px solid #D9D9D9;
+			background: #ECECEC;
+			width: 978px;
+		}
+		.source pre {
+			padding: 10px 0px;
+			border: none;
+		}
+		.source .data {
+			font-size: 80%;
+			overflow: auto;
+			background-color: #FFF;
+		}
+		.info {
+			padding: 0.5em;
+		}
+		.source .data .line_numbers {
+			background-color: #ECECEC;
+			color: #AAA;
+			padding: 1em .5em;
+			border-right: 1px solid #DDD;
+			text-align: right;
+		}
+		.line {
+			padding-left: 10px;
+		}
+		.line:hover {
+			background-color: #F6F6F6;
+		}
+		.line.active {
+			background-color: #FFCCCC;
+		}
+		a {
+			color: #980905;
+		}
+		a:visited {
+			color: #666;
+		}
+		a:hover {
+			color: #C52F24;
+		}
+    </style>
+    <script>
+					var toggle= function(id) {
+					var s=document.getElementById(id).style;
+					s.display=s.display=='none'?'block':'none';
+					return false;
+					}
+					var show= function(id) {
+					document.getElementById(id).style.display='block';
+					}
+					var hide= function(id) {
+					document.getElementById(id).style.display='none';
+					}
+					var toggleTrace= function() {
+					return toggle('blame_trace');
+					}
+					var toggleSessionDump= function() {
+					return toggle('session_dump');
+					}
+					var toggleEnvDump= function() {
+					return toggle('env_dump');
+					}
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1> NameError       in UsersController#authenticate_user </h1>
+    </header>
+    <div id="container">
+      <h2>undefined local variable or method `result&#39; for #&lt;UsersController:0x42a2f90&gt;</h2>
+      <div class="source">
+        <div class="info">
+          Extracted source (around line <strong>#15</strong>):
+        </div>
+        <div class="data">
+          <table cellpadding="0" cellspacing="0" class="lines">
+            <tr>
+              <td>              <pre class="line_numbers"> <span>13</span> <span>14</span> <span>15</span> <span>16</span> <span>17</span> <span>18</span>           </pre></td><td width="100%">              <pre> <div class="line">   existing_user  = incoming_user.authenticate() </div><div class="line">    respond_to do |format| </div><div class="line active">      if(result.nil?) </div><div class="line">        format.json { render json: existing_user.to_json, status: :accepted} # 202 is : accepted </div><div class="line">     else       </div><div class="line">       format.json { render json: incoming_user, status: :precondition_failed }  # code 412 </div> </pre></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <p>
+        <code>
+          Rails.root: D:/SEProject/T6/travel 2</code>
+      </p>
+      <div id="traces">
+        <a href="#" onclick="hide(&#39;Framework-Trace&#39;);hide(&#39;Full-Trace&#39;);show(&#39;Application-Trace&#39;);; return false;">Application Trace</a> | <a href="#" onclick="hide(&#39;Application-Trace&#39;);hide(&#39;Full-Trace&#39;);show(&#39;Framework-Trace&#39;);; return false;">Framework Trace</a> | <a href="#" onclick="hide(&#39;Application-Trace&#39;);hide(&#39;Framework-Trace&#39;);show(&#39;Full-Trace&#39;);; return false;">Full Trace</a>
+        <div id="Application-Trace" style="display: block;">
+          <pre><code>app/controllers/users_controller.rb:15:in `block in authenticate_user&#39; app/controllers/users_controller.rb:14:in `authenticate_user&#39;</code></pre>
+        </div>
+        <div id="Framework-Trace" style="display: none;">
+          <pre><code>actionpack (4.1.1) lib/action_controller/metal/mime_responds.rb:433:in `call&#39; actionpack (4.1.1) lib/action_controller/metal/mime_responds.rb:433:in `retrieve_collector_from_mimes&#39; actionpack (4.1.1) lib/action_controller/metal/mime_responds.rb:256:in `respond_to&#39; actionpack (4.1.1) lib/action_controller/metal/implicit_render.rb:4:in `send_action&#39; actionpack (4.1.1) lib/abstract_controller/base.rb:189:in `process_action&#39; actionpack (4.1.1) lib/action_controller/metal/rendering.rb:10:in `process_action&#39; actionpack (4.1.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action&#39; activesupport (4.1.1) lib/active_support/callbacks.rb:113:in `call&#39; activesupport (4.1.1) lib/active_support/callbacks.rb:113:in `call&#39; activesupport (4.1.1) lib/active_support/callbacks.rb:229:in `block in halting&#39; activesupport (4.1.1) lib/active_support/callbacks.rb:229:in `call&#39; activesupport (4.1.1) lib/active_support/callbacks.rb:229:in `block in halting&#39; activesupport (4.1.1) lib/active_support/callbacks.rb:166:in `call&#39; activesupport (4.1.1) lib/active_support/callbacks.rb:166:in `block in halting&#39; activesupport (4.1.1) lib/active_support/callbacks.rb:166:in `call&#39; activesupport (4.1.1) lib/active_support/callbacks.rb:166:in `block in halting&#39; activesupport (4.1.1) lib/active_support/callbacks.rb:86:in `call&#39; activesupport (4.1.1) lib/active_support/callbacks.rb:86:in `run_callbacks&#39; actionpack (4.1.1) lib/abstract_controller/callbacks.rb:19:in `process_action&#39; actionpack (4.1.1) lib/action_controller/metal/rescue.rb:29:in `process_action&#39; actionpack (4.1.1) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action&#39; activesupport (4.1.1) lib/active_support/notifications.rb:159:in `block in instrument&#39; activesupport (4.1.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument&#39; activesupport (4.1.1) lib/active_support/notifications.rb:159:in `instrument&#39; actionpack (4.1.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action&#39; actionpack (4.1.1) lib/action_controller/metal/params_wrapper.rb:250:in `process_action&#39; activerecord (4.1.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action&#39; actionpack (4.1.1) lib/abstract_controller/base.rb:136:in `process&#39; actionview (4.1.1) lib/action_view/rendering.rb:30:in `process&#39; actionpack (4.1.1) lib/action_controller/metal.rb:195:in `dispatch&#39; actionpack (4.1.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch&#39; actionpack (4.1.1) lib/action_controller/metal.rb:231:in `block in action&#39; actionpack (4.1.1) lib/action_dispatch/routing/route_set.rb:80:in `call&#39; actionpack (4.1.1) lib/action_dispatch/routing/route_set.rb:80:in `dispatch&#39; actionpack (4.1.1) lib/action_dispatch/routing/route_set.rb:48:in `call&#39; actionpack (4.1.1) lib/action_dispatch/journey/router.rb:71:in `block in call&#39; actionpack (4.1.1) lib/action_dispatch/journey/router.rb:59:in `each&#39; actionpack (4.1.1) lib/action_dispatch/journey/router.rb:59:in `call&#39; actionpack (4.1.1) lib/action_dispatch/routing/route_set.rb:676:in `call&#39; rack (1.5.2) lib/rack/etag.rb:23:in `call&#39; rack (1.5.2) lib/rack/conditionalget.rb:35:in `call&#39; rack (1.5.2) lib/rack/head.rb:11:in `call&#39; actionpack (4.1.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call&#39; actionpack (4.1.1) lib/action_dispatch/middleware/flash.rb:254:in `call&#39; rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context&#39; rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call&#39; actionpack (4.1.1) lib/action_dispatch/middleware/cookies.rb:560:in `call&#39; activerecord (4.1.1) lib/active_record/query_cache.rb:36:in `call&#39; activerecord (4.1.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call&#39; activerecord (4.1.1) lib/active_record/migration.rb:380:in `call&#39; actionpack (4.1.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call&#39; activesupport (4.1.1) lib/active_support/callbacks.rb:82:in `run_callbacks&#39; actionpack (4.1.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call&#39; actionpack (4.1.1) lib/action_dispatch/middleware/reloader.rb:73:in `call&#39; actionpack (4.1.1) lib/action_dispatch/middleware/remote_ip.rb:76:in `call&#39; actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call&#39; actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call&#39; railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app&#39; railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call&#39; activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged&#39; activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged&#39; activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged&#39; railties (4.1.1) lib/rails/rack/logger.rb:20:in `call&#39; actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call&#39; rack (1.5.2) lib/rack/methodoverride.rb:21:in `call&#39; rack (1.5.2) lib/rack/runtime.rb:17:in `call&#39; activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call&#39; rack (1.5.2) lib/rack/lock.rb:17:in `call&#39; actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call...

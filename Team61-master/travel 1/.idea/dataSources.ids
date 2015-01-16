@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source source="LOCAL" name="Rails travel 1: development" uuid="8ff5fcef-4e09-47be-a3c8-b1a8bade79a6">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source source="LOCAL" name="Rails travel 2: development" uuid="4c109473-7c2c-4a29-a86a-81fcbf7f22d9">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+</component>

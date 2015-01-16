@@ -1,0 +1,36 @@
+<script type="application/javascript">
+
+</script>
+
+<%= form_for :airline, url: user_airlines_path(user.id), method: :post, html: {id: 'airlinesForm'} do |ucf| %>
+   <legend>Select Airlines you want work with</legend>
+      	Available airlines: <br /> <br/> 
+ <div class="field">
+
+      <table>
+        <tbody>
+<td>		
+
+
+Airline 1<input id="airline" name="airline_name[]" type="checkbox" value="1" /> 
+Airline 2	<input id="airline" name="airline_name[]" type="checkbox" value="2" /> 
+Airline 3	<input id="airline" name="airline_name[]" type="checkbox" value="3" /> 
+Airline 4<input id="airline" name="airline_name[]" type="checkbox" value="4" /> 
+
+
+<br /> <br/><br/><legend>Select Payment Options you want to include</legend>
+      	Available options: <br /> <br/> <br/> 
+Account Transfer<input id="payment" name="payment_name[]" type="checkbox" value="a" /> 
+Credit Card<input id="payment" name="payment_name[]" type="checkbox" value="b" /> 	
+</div>
+</td>	
+	<td class="app-td-right">
+            <%= ucf.submit "create custom App", {id: 'createCustomApp', type: 'button'} %>
+          </td>
+	
+	 </tbody>
+      </table>
+
+<% end %>
+
+	

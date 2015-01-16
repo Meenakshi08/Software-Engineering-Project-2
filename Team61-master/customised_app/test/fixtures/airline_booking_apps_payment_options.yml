@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  airline_booking_app_id: 1
+  payment_option_id: 1
+
+two:
+  airline_booking_app_id: 1
+  payment_option_id: 1

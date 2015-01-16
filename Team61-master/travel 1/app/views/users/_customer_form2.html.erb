@@ -1,0 +1,60 @@
+<script type="application/javascript">
+
+</script>
+
+<%= form_for customer, url: user_customers_path(user.id), method: :post, html: {id: 'customerForm2'} do |ucf| %>
+
+      <table>
+        <tbody>
+        <tr>
+          <td class="app-td-right">
+            Customer name:
+          </td>
+          <td class="app-td-left">
+            <%= ucf.text_field :name, {id: :customer_name_field2} %>
+          </td>
+        </tr>
+         <tr>
+          <td class="app-td-right">
+            Customer Id:
+          </td>
+          <td class="app-td-left">
+            <%= ucf.text_field :id, {id: :customer_id_field2} %>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="app-td-right">
+            <%= ucf.button "create customer", {id: 'createCustomer2', type: 'button'} %>
+          </td>
+          <td class="app-td-left">
+            <%= ucf.button "delete customer", {id: 'deleteCustomer2', type: 'button'} %>
+          </td>
+        </tr>
+        <tr>
+          <td class="app-td-right">
+            <%= ucf.button "find customer", {id: 'findCustomer2', type: 'button'} %>
+          </td>
+          <td class="app-td-left">
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

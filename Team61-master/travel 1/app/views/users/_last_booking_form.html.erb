@@ -1,0 +1,36 @@
+<script type="application/javascript">
+
+</script>
+<div id="lastBookingFormDiv" style="display: none">
+  <%= form_for cab_booking, url: user_customer_cab_bookings_path(user.id, -1), html: {id: 'lastBookingForm'} do |uclbf| %>
+      <table>
+        <tbody>
+        <tr>
+        <td class="app-td-right">
+          source
+        </td>
+        <td class="app-td-left">
+          <%= uclbf.text_field :source,{id: :sourcefield}  %>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="app-td-right">
+          destination
+        </td>
+        <td class="app-td-left">
+          <%= uclbf.text_field :destination, {id: :destinationfield}  %>
+        </td>
+      </tr>
+        <tr>
+          <td class="app-td-right">
+            <%= uclbf.button "last booking", {id: 'lastBookingButton', type: 'button'} %>
+          </td>
+          <td class="app-td-left">
+            <%= uclbf.button "next booking", {id: 'nextBookingButton', type: 'button'} %>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+  <% end %>
+</div>

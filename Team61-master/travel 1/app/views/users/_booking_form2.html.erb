@@ -1,0 +1,97 @@
+<script type="application/javascript">
+
+</script>
+<div  id="bookingFormDiv2" style="display: none">
+<%= form_for airline_booking, url: user_customer_airline_bookings_path(user.id, -1), html: {id: 'bookingForm2'} do |ucbf| %>
+    <table>
+      <tbody>
+      <tr>
+        <td class="app-td-right">
+          booking Id
+        </td>
+        <td class="app-td-left">
+          <%= ucbf.text_field :id,  {id: :id_field2} %>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="app-td-right">
+          source
+        </td>
+        <td class="app-td-left">
+          <%= ucbf.text_field :source,  {id: :source_field2} %>
+
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="app-td-right">
+          destination
+        </td>
+        <td class="app-td-left">
+          <%= ucbf.text_field :destination ,{id: :destination_field2}%>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="app-td-right">
+          flight_no
+        </td>
+        <td class="app-td-left">
+          <%= ucbf.text_field :flight_no , {id: :flight_no_field}%>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="app-td-right">
+          departure_time
+        </td>
+        <td class="app-td-left">
+          <%= ucbf.text_field :departure_time, {id: :departure_time_field} %>
+        </td>
+      </tr>
+      <tr>
+        <td class="app-td-right">
+          total_fare
+        </td>
+        <td class="app-td-left">
+          <%= ucbf.text_field :total_fare , {id: :total_fare_field}%>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="app-td-right">
+          airline_id
+        </td>
+        <td class="app-td-left">
+          <%= ucbf.text_field :airline_id, {id: :airline_id_field} %>
+        </td>
+      </tr>
+      
+      </tbody>
+    </table>
+  
+    <table>
+      <tbody>
+      <tr>
+        <td class="app-td-right">
+        </td>
+        <td class="app-td-left">
+          <%= ucbf.button "find booking", {id: 'findbookingButton2', type: 'button'} %>
+        </td>
+      </tr>
+      <tr>
+        <td class="app-td-right">
+          <%= ucbf.button "generate booking", {id: 'generatebookingButton2', type: 'button'} %>
+
+        </td>
+        <td class="app-td-left">
+          <%= ucbf.button "update booking", {id: 'updatebookingButton2', type: 'button'} %>
+        </td>
+      </tr>
+      
+        
+      </tbody>
+    </table>
+<% end %>
+</div>

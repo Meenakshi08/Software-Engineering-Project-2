@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Home</title>
+  <style type="text/css">
+      <!--
+      body {
+          margin: 0;
+          padding: 0;
+      }
+
+      /* ~~ Element/tag selectors ~~ */
+      ul, ol, dl { /* Due to variations between browsers, it's best practices to zero padding and margin on lists. For consistency, you can either specify the amounts you want here, or on the list items (LI, DT, DD) they contain. Remember that what you do here will cascade to the .nav list unless you write a more specific selector. */
+          padding: 0;
+          margin: 0;
+      }
+      h1, h2, h3, h4, h5, h6, p {
+          margin-top: 0;	 /* removing the top margin gets around an issue where margins can escape from their containing div. The remaining bottom margin will hold it away from any elements that follow. */
+          padding-right: 15px;
+          padding-left: 15px; /* adding the padding to the sides of the elements within the divs, instead of the divs themselves, gets rid of any box model math. A nested div with side padding can also be used as an alternate method. */
+      }
+      a img { /* this selector removes the default blue border displayed in some browsers around an image when it is surrounded by a link */
+          border: none;
+      }
+
+      /* ~~ Styling for your site's links must remain in this order - including the group of selectors that create the hover effect. ~~ */
+      a:link {
+          color: #42413C;
+          text-decoration: underline; /* unless you style your links to look extremely unique, it's best to provide underlines for quick visual identification */
+      }
+      a:visited {
+          color: #6E6C64;
+          text-decoration: underline;
+      }
+      a:hover, a:active, a:focus { /* this group of selectors will give a keyboard navigator the same hover experience as the person using a mouse. */
+          text-decoration: none;
+      }
+
+      /* ~~this fixed width container surrounds the other divs~~ */
+      .container {
+          width: 960px;
+          margin: 0 auto; /* the auto value on the sides, coupled with the width, centers the layout */
+      }
+
+      /* ~~ the header is not given a width. It will extend the full width of your layout. It contains an image placeholder that should be replaced with your own linked logo ~~ */
+      .header {
+
+      }
+
+      /* ~~ These are the columns for the layout. ~~
+
+      1) Padding is only placed on the top and/or bottom of the divs. The elements within these divs have padding on their sides. This saves you from any "box model math". Keep in mind, if you add any side padding or border to the div itself, it will be added to the width you define to create the *total* width. You may also choose to remove the padding on the element in the div and place a second div within it with no width and the padding necessary for your design. You may also choose to remove the padding on the element in the div and place a second div within it with no width and the padding necessary for your design.
+
+      2) No margin has been given to the columns since they are all floated. If you must add margin, avoid placing it on the side you're floating toward (for example: a right margin on a div set to float right). Many times, padding can be used instead. For divs where this rule must be broken, you should add a "display:inline" declaration to the div's rule to tame a bug where some versions of Internet Explorer double the margin.
+
+      3) Since classes can be used multiple times in a document (and an element can also have multiple classes applied), the columns have been assigned class names instead of IDs. For example, two sidebar divs could be stacked if necessary. These can very easily be changed to IDs if that's your preference, as long as you'll only be using them once per document.
+
+      4) If you prefer your nav on the right instead of the left, simply float these columns the opposite direction (all right instead of all left) and they'll render in reverse order. There's no need to move the divs around in the HTML source.
+
+      */
+      .sidebar1 {
+          float: left;
+          width: 180px;
+          padding-bottom: 10px;
+      }
+      .content {
+
+          padding: 10px 0;
+          width: 780px;
+          float: left;
+      }
+
+      /* ~~ This grouped selector gives the lists in the .content area space ~~ */
+      .content ul, .content ol {
+          padding: 0 15px 15px 40px; /* this padding mirrors the right padding in the headings and paragraph rule above. Padding was placed on the bottom for space between other elements on the lists and on the left to create the indention. These may be adjusted as you wish. */
+      }
+
+      /* ~~ The navigation list styles (can be removed if you choose to use a premade flyout menu like Spry) ~~ */
+      ul.nav {
+          list-style: none; /* this removes the list marker */
+          border-top: 1px solid #666; /* this creates the top border for the links - all others are placed using a bottom border on the LI */
+          margin-bottom: 15px; /* this creates the space between the navigation on the content below */
+      }
+      ul.nav li {
+          border-bottom: 1px solid #666; /* this creates the button separation */
+      }
+      ul.nav a, ul.nav a:visited { /* grouping these selectors makes sure that your links retain their button look even after being visited */
+          padding: 5px 5px 5px 15px;
+          display: block; /* this gives the link block properties causing it to fill the whole LI containing it. This causes the entire area to react to a mouse click. */
+          width: 160px;  /*this width makes the entire button clickable for IE6. If you don't need to support IE6, it can be removed. Calculate the proper width by subtracting the padding on this link from the width of your sidebar container. */
+          text-decoration: none;
+      }
+      ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* this changes the background and text color for both mouse and keyboard navigators */
+          color: #FFF;
+      }
+
+      .content2 {
+          padding: 10px 0;
+          position: relative;
+          clear: both;
+      }
+
+
+      /* ~~ The footer ~~ */
+      .footer {
+          padding: 10px 0;
+          position: relative;/* this gives IE6 hasLayout to properly clear */
+          clear: both; /* this clear property forces the .container to understand where the columns end and contain them */
+      }
+
+      /* ~~ miscellaneous float/clear classes ~~ */
+      .fltrt {  /* this class can be used to float an element right in your page. The floated element must precede the element it should be next to on the page. */
+          float: right;
+          margin-left: 8px;
+      }
+      .fltlft { /* this class can be used to float an element left in your page. The floated element must precede the element it should be next to on the page. */
+          float: left;
+          margin-right: 8px;
+      }
+      .clearfloat { /* this class can be placed on a <br /> or empty div as the final element following the last floated div (within the #container) if the #footer is removed or taken out of the #container */
+          clear:both;
+          height:0;
+          font-size: 1px;
+          line-height: 0px;
+      }
+      -->
+  </style></head>
+
+<body>
+
+<div class="container">
+  <div class="header"><!-- end .header --><%= link_to "About Us", aboutus_path %> | <%= link_to "Log out", log_out_path %></div>
+  <div class="sidebar1">
+    <ul class="nav">
+      <li><%= link_to 'Settings', settings_path(:id => @user.id), :class => "btn btn-warning" %></li>
+      <% if @query_values[0].eql? '1'%>	  
+      <li><a href="javascript:displayFixedAppHandler();" id="fixedAppLink">Cab Booking </a>
+      <%end %>
+      <% if @query_values[1].eql? '1'%>
+      <li><a href="javascript:displayFixedAppHandler2();" id="fixedAppLink2">Flight Booking </a>
+      <% end %>
+      <li>
+      Domains selected by the Travel Agent will be displayed here</p></li>
+    </ul>
+    <!-- end .sidebar1 --></div>
+  <div class="content">
+    <p> WELCOME <%= @user.first_name %>  <%= @user.last_name %><br />
+      Forms will be displayed here.</p>
+       
+      <div id="fixedApp" class="auto-style1" style="display: none">
+ <%= render partial: 'customer_form', locals: {user: @user, customer: @customer} %>
+ <%= render partial: 'booking_form', locals: {user: @user, customer: @customer, cab_booking: @cab_booking} %>
+ <%= render partial: 'last_booking_form', locals: {user: @user, customer: @customer, cab_booking: @cab_booking} %>
+        
+      </div>
+    <div id="fixedApp2" class="auto-style1" style="display: none">
+    	<p> Airlines </p>
+	<% if $ary.include?(1) %>
+	<input type="radio" name="airline[]" value="airline">Airline 1<br>
+	<% end %>
+
+	<% if $ary.include?(2) %>
+	<input type="radio" name="airline[]" value="airline">Airline 2<br>
+	<% end %>
+
+	<% if $ary.include?(3) %>
+	<input type="radio" name="airline[]" value="airline">Airline 3<br>
+	<% end %>
+	 
+	<% if $ary.include?(4) %>
+	<input type="radio" name="airline[]" value="airline">Airline 4<br>
+	<% end %>
+	</br>
+	</br>
+ <%= render partial: 'customer_form2', locals: {user: @user, customer: @customer} %>
+  <%= render partial: 'booking_form2', locals: {user: @user, customer: @customer, airline_booking: @airline_booking} %>
+ 
+        
+      </div>
+      
+    <!-- end .content --></div>
+  <div class="content2">
+    <p> Additional data</p>
+    <!-- end .content --></div>
+  <div class="footer">
+    <p>Copyright &copy;</p>
+    <!-- end .footer --></div>
+  <!-- end .container --></div>
+  
+  
+<script type="application/javascript">
+
+var g_customer_id = '<%= @customer.id %>';
+
+function createCustomerHandler() 
+{
+        targetForm = $('#customerForm')
+        targetForm[0].action = '/users/<%=@user.id%>/customers'
+        targetForm[0].method = 'post'
+        targetForm[0].submit();
+}
+function createCustomerHandler2() 
+{
+        targetForm = $('#customerForm2')
+        targetForm[0].action = '/users/<%=@user.id%>/customers'
+        targetForm[0].method = 'post'
+        targetForm[0].submit();
+}
+function deleteCustomerHandler() 
+{
+  targetForm = $('#customerForm')
+  targetForm[0].action = "/users/<%=@user.id%>/customers/" + $('#customer_id_field')[0].value
+  targetForm[0].method = 'post'
+  targetForm[0].submit();
+
+}
+function findCustomerCallBack(data, status) 
+{
+        $('#customer_name_field')[0].value = data.name
+        $('#customer_id_field')[0].value = data.id
+        g_customer_id = data.id;
+        
+        bookingFormDisplayToggle();
+        lastBookingFormDisplayToggle();
+}
+function findCustomerHandler() 
+{
+	target  = "/users/<%=@user.id%>/customers/" + $('#customer_id_field')[0].value
+        $.get(target, findCustomerCallBack, 'json');
+}
+function deleteCustomerHandler2() 
+{
+  targetForm = $('#customerForm2')
+  targetForm[0].action = "/users/<%=@user.id%>/customers/" + $('#customer_id_field2')[0].value
+  targetForm[0].method = 'post'
+  targetForm[0].submit();
+
+}
+function findCustomerCallBack2(data, status) 
+{
+        $('#customer_name_field2')[0].value = data.name
+        $('#customer_id_field2')[0].value = data.id
+        g_customer_id = data.id;
+        bookingFormDisplayToggle2();
+               
+}
+function findCustomerHandler2() 
+{
+	target  = "/users/<%=@user.id%>/customers/" + $('#customer_id_field2')[0].value
+        $.get(target, findCustomerCallBack2, 'json');
+}
+function displayFixedAppHandler()
+{
+	$('#fixedApp')[0].style.display = 'block';
+}
+function displayFixedAppHandler2()
+{
+	$('#fixedApp2')[0].style.display = 'block';
+}
+ function bookingFormDisplayToggle(){
+        if(g_customer_id != '' && g_customer_id != 'nil'){
+            $('#bookingFormDiv')[0].style.display = 'block';
+            }
+        
+    }
+   function bookingFormDisplayToggle2(){
+        if(g_customer_id != '' && g_customer_id != 'nil'){
+            $('#bookingFormDiv2')[0].style.display = 'block';
+            }
+        
+    } 
+function lastBookingFormDisplayToggle()
+{
+  if(g_customer_id != '' && g_customer_id != 'nil'){
+    $('#lastBookingFormDiv')[0].style.display = 'block';
+  }
+}
+
+function generateBookingHandler() 
+{
+  targetForm = $('#bookingForm')
+  targetForm[0].action = '/users/<%=@user.id%>/customers/'+$('#customer_id_field')[0].value+'/cab_bookings'
+  targetForm[0].method = 'post'
+  targetForm[0].submit();
+}
+function findBookingHandler()
+{
+    target  = "/users/<%=@user.id%>/customers/" + $('#customer_id_field')[0].value+'/cab_bookings/'+$('#id_field')[0].value
+    $.get(target, findBookingCallBack, 'json');
+}
+
+function findBookingCallBack(data, status)
+{
+    $('#id_field')[0].value = data.id
+    $('#source_field')[0].value = data.source
+    $('#destination_field')[0].value = data.destination
+    $('#pickup_time_field')[0].value = data.pickup_time
+    $('#pickup_date_field')[0].value = data.pickup_date
+    
+    bookingFormDisplayToggle();
+    lastBookingFormDisplayToggle();
+}
+
+function updateBookingHandler()
+{
+    targetForm = $('#bookingForm')
+    targetForm[0].action = '/users/<%=@user.id%>/customers/'+$('#customer_id_field')[0].value+'/cab_bookings/'+$('#id_field')[0].value
+    targetForm[0].method = 'post'
+    targetForm[0].submit();
+}
+
+function updateBookingCallBack(data, status)
+{
+    $('#id_field')[0].value = data.id
+    $('#source_field')[0].value = data.source
+    $('#destination_field')[0].value = data.destination
+    $('#pickup_time_field')[0].value = data.pickup_time
+    $('#pickup_date_field')[0].value = data.pickup_date
+    
+ 
+    bookingFormDisplayToggle();
+    lastBookingFormDisplayToggle();
+}
+
+function lastBookingHandler()
+{
+    target  = "/users/<%=@user.id%>/customers/" + $('#customer_id_field')[0].value+'/cab_bookings/'+$('#id_field')[0].value+'/last_cab_bookings/'+$('#id_field')[0].value
+    $.get(target, lastBookingCallBack, 'json');
+}
+
+function lastBookingCallBack(data, status)
+{$('#id_field')[0].value = data.id
+   $('#source_field')[0].value = ''
+    $('#destination_field')[0].value = ''
+    $('#pickup_time_field')[0].value = ''
+    $('#pickup_date_field')[0].value = ''
+    
+    $('#sourcefield')[0].value = data.source
+    $('#destinationfield')[0].value = data.destination
+ 
+    bookingFormDisplayToggle();
+    lastBookingFormDisplayToggle();
+}
+function nextBookingHandler()
+{
+     target  = "/users/<%=@user.id%>/customers/" + $('#customer_id_field')[0].value+'/cab_bookings/'+$('#id_field')[0].value+'/next_cab_bookings/'+$('#id_field')[0].value
+    $.get(target, nextBookingCallBack, 'json');
+}
+
+function nextBookingCallBack(data, status)
+
+{$('#id_field')[0].value = data.id
+   $('#source_field')[0].value = ''
+    $('#destination_field')[0].value = ''
+    $('#pickup_time_field')[0].value = ''
+    $('#pickup_date_field')[0].value = ''
+	
+    $('#id_field')[0].value = data.id
+    $('#sourcefield')[0].value = data.source
+    $('#destinationfield')[0].value = data.destination
+
+    bookingFormDisplayToggle();
+    lastBookingFormDisplayToggle();
+}
+
+
+function generateBookingHandler2() 
+{
+  targetForm = $('#bookingForm2')
+  targetForm[0].action = '/users/<%=@user.id%>/customers/'+$('#customer_id_field2')[0].value+'/airline_bookings'
+  targetForm[0].method = 'post'
+  targetForm[0].submit();
+}
+function findBookingHandler2()
+{
+    target  = "/users/<%=@user.id%>/customers/" + $('#customer_id_field2')[0].value+'/airline_bookings/'+$('#id_field2')[0].value
+    $.get(target, findBookingCallBack2, 'json');
+}
+
+function findBookingCallBack2(data, status)
+{
+    $('#id_field2')[0].value = data.id
+    $('#source_field2')[0].value = data.source
+    $('#destination_field2')[0].value = data.destination
+    $('#flight_no_field')[0].value = data.flight_no
+    $('#departure_time_field')[0].value = data.departure_time_field
+    $('#total_fare_field')[0].value = data.total_fare_field
+    $('#airline_id_field')[0].value = data.airline_id_field
+    
+    bookingFormDisplayToggle2();
+    
+}
+
+function updateBookingHandler2()
+{
+    targetForm = $('#bookingForm2')
+    targetForm[0].action = '/users/<%=@user.id%>/customers/'+$('#customer_id_field2')[0].value+'/airline_bookings/'+$('#id_field2')[0].value
+    targetForm[0].method = 'post'
+    targetForm[0].submit();
+}
+
+function updateBookingCallBack2(data, status)
+{
+    $('#id_field2')[0].value = data.id
+    $('#source_field2')[0].value = data.source
+    $('#destination_field2')[0].value = data.destination
+    $('#flight_no_field')[0].value = data.flight_no
+    $('#departure_time_field')[0].value = data.departure_time_field
+    $('#total_fare_field')[0].value = data.total_fare_field
+    $('#airline_id_field')[0].value = data.airline_id_field
+    
+    bookingFormDisplayToggle2();
+}
+
+function documentReadyHandler() 
+{
+  $('#fixedAppLink2').click(displayFixedAppHandler2); 
+  $('#fixedAppLink').click(displayFixedAppHandler); 
+  $('#createCustomer2').click(createCustomerHandler2); 
+  $('#createCustomer').click(createCustomerHandler); 
+  $('#deleteCustomer').click(deleteCustomerHandler);
+  $('#findCustomer').click(findCustomerHandler); 	
+ $('#deleteCustomer2').click(deleteCustomerHandler2);
+  $('#findCustomer2').click(findCustomerHandler2); 	
+  $('#generatebookingButton').click(generateBookingHandler);
+  $('#findbookingButton').click(findBookingHandler);
+  $('#updatebookingButton').click(updateBookingHandler);
+  $('#lastBookingButton').click(lastBookingHandler);
+   $('#nextBookingButton').click(nextBookingHandler);
+   
+   $('#generatebookingButton2').click(generateBookingHandler2);
+  $('#findbookingButton2').click(findBookingHandler2);
+  $('#updatebookingButton2').click(updateBookingHandler2);
+  bookingFormDisplayToggle();
+  bookingFormDisplayToggle2();
+  lastBookingFormDisplayToggle();
+}
+$(document).ready(documentReadyHandler);
+
+</script>
+
+
+</body>
+</html>
+
+</body>
+</html>
+
+
+

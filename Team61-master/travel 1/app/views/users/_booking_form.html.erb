@@ -1,0 +1,80 @@
+<script type="application/javascript">
+
+</script>
+<div  id="bookingFormDiv" style="display: none">
+<%= form_for cab_booking, url: user_customer_cab_bookings_path(user.id, -1), html: {id: 'bookingForm'} do |ucbf| %>
+    <table>
+      <tbody>
+      <tr>
+        <td class="app-td-right">
+          booking Id
+        </td>
+        <td class="app-td-left">
+          <%= ucbf.text_field :id,  {id: :id_field} %>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="app-td-right">
+          source
+        </td>
+        <td class="app-td-left">
+          <%= ucbf.text_field :source,  {id: :source_field} %>
+
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="app-td-right">
+          destination
+        </td>
+        <td class="app-td-left">
+          <%= ucbf.text_field :destination ,{id: :destination_field}%>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="app-td-right">
+          pickup_date
+        </td>
+        <td class="app-td-left">
+          <%= ucbf.text_field :pickup_date , {id: :pickup_date_field}%>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="app-td-right">
+          pickup_time
+        </td>
+        <td class="app-td-left">
+          <%= ucbf.text_field :pickup_time, {id: :pickup_time_field} %>
+        </td>
+      </tr>
+      
+      </tbody>
+    </table>
+  
+    <table>
+      <tbody>
+      <tr>
+        <td class="app-td-right">
+        </td>
+        <td class="app-td-left">
+          <%= ucbf.button "find booking", {id: 'findbookingButton', type: 'button'} %>
+        </td>
+      </tr>
+      <tr>
+        <td class="app-td-right">
+          <%= ucbf.button "generate booking", {id: 'generatebookingButton', type: 'button'} %>
+
+        </td>
+        <td class="app-td-left">
+          <%= ucbf.button "update booking", {id: 'updatebookingButton', type: 'button'} %>
+        </td>
+      </tr>
+      
+        
+      </tbody>
+    </table>
+<% end %>
+</div>

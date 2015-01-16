@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Settings</title>
+  <style type="text/css">
+      <!--
+      body {
+          margin: 0;
+          padding: 0;
+          color: #000;
+      }
+
+      
+      ul, ol, dl { 
+          padding: 0;
+          margin: 0;
+      }
+      h1, h2, h3, h4, h5, h6, p {
+          margin-top: 0;	
+          padding-right: 15px;
+          padding-left: 15px; 
+      }
+      a img { 
+          border: none;
+      }
+
+      a:link {
+          color:#414958;
+          text-decoration: underline; 
+      }
+      a:visited {
+          color: #4E5869;
+          text-decoration: underline;
+      }
+      a:hover, a:active, a:focus {
+          text-decoration: none;
+      }
+
+      /* ~~this fixed width container surrounds the other divs~~ */
+      .container {
+          width: 960px;
+          margin: 0 auto; 
+      }
+
+      /* ~~ the header is not given a width. It will extend the full width of your layout. It contains an image placeholder that should be replaced with your own linked logo ~~ */
+      .header {
+
+      }
+
+     
+      .sidebar1 {
+          float: left;
+          width: 220px;
+          padding-bottom: 10px;
+      }
+      .content {
+
+          padding: 10px 0;
+          width: 740px;
+          float: left;
+      }
+
+      /* ~~ This grouped selector gives the lists in the .content area space ~~ */
+      .content ul, .content ol {
+          padding: 0 15px 15px 40px; 
+      }
+
+      /* ~~ The navigation list styles (can be removed if you choose to use a premade flyout menu like Spry) ~~ */
+      ul.nav {
+          list-style: none; /* this removes the list marker */
+          border-top: 1px solid #666; /* this creates the top border for the links - all others are placed using a bottom border on the LI */
+          margin-bottom: 15px; /* this creates the space between the navigation on the content below */
+      }
+      ul.nav li {
+          border-bottom: 1px solid #666; /* this creates the button separation */
+      }
+      ul.nav a, ul.nav a:visited { /* grouping these selectors makes sure that your links retain their button look even after being visited */
+          padding: 5px 5px 5px 15px;
+          display: block; /* this gives the link block properties causing it to fill the whole LI containing it. This causes the entire area to react to a mouse click. */
+          width: 160px;  /*this width makes the entire button clickable for IE6. If you don't need to support IE6, it can be removed. Calculate the proper width by subtracting the padding on this link from the width of your sidebar container. */
+          text-decoration: none;
+          background-color: #C6D580;
+      }
+      ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* this changes the background and text color for both mouse and keyboard navigators */
+          background-color: #ADB96E;
+          color: #FFF;
+      }
+
+      .content2 {
+          padding: 10px 0;
+          position: relative;
+          clear: both;
+      }
+
+      /* ~~ The footer ~~ */
+      .footer {
+          padding: 10px 0;
+
+          position: relative;/* this gives IE6 hasLayout to properly clear */
+          clear: both; /* this clear property forces the .container to understand where the columns end and contain them */
+      }
+
+      /* ~~ miscellaneous float/clear classes ~~ */
+      .fltrt {  /* this class can be used to float an element right in your page. The floated element must precede the element it should be next to on the page. */
+          float: right;
+          margin-left: 8px;
+      }
+      .fltlft { /* this class can be used to float an element left in your page. The floated element must precede the element it should be next to on the page. */
+          float: left;
+          margin-right: 8px;
+      }
+      .clearfloat { /* this class can be placed on a <br /> or empty div as the final element following the last floated div (within the #container) if the #footer is removed or taken out of the #container */
+          clear:both;
+          height:0;
+          font-size: 1px;
+          line-height: 0px;
+      }
+      -->
+  </style>
+  </head>
+
+<body>
+
+<div class="container">
+  <div class="header"><!-- end .header --><%= link_to "Home", show_path(:id => @user.id) %> | <%= link_to "About Us", aboutus_path %> | <%= link_to "Log out", log_out_path %>
+  </div>
+  
+  <div class="sidebar1">  
+    <p><b>Available Apps</b> </p>
+    <table>
+      <tr>
+          <% if @query_values[0].eql? '0'%>
+          <td>Cab Booking</td>
+          <td><%= button_to "Add",cabadd_user_path(@user), :method => "get" %> </td>
+          <% end %>
+      </tr>
+      <tr>  
+          <% if @query_values[1].eql? '0'%>
+          <td><a href="javascript:displayCustomizedAppHandler();" id="customizedAppLink">Customize Flight Booking </a> </td>
+          <% end %>
+      </tr>
+    </table>
+	</br>
+	</br>
+	</br>
+    <p><b>Added Apps</b> </p>
+    <table>
+    <tr>
+      <% if @query_values[0].eql? '1'%>
+        <td>Cab Booking</td>
+        <td><%= button_to "Drop",cabdrop_user_path(@user), :method => "get" %></td>
+      <% end %>
+    </tr>
+    <tr>
+      <% if @query_values[1].eql? '1'%>
+      <td><a href="javascript:displayCustomizedAppHandler();" id="customizedAppLink">Customize Flight Booking </a> </td>
+      <td> <%= button_to "Drop",flightdrop_user_path(@user), :method => "get" %></td>
+      <% end %>
+    </tr>
+    </table>
+      
+    <!-- end .sidebar1 --></div>
+    
+  <div class="content" id="snap">
+    <p>The snapshot of form of the app will be displayed here on selecting.</p>
+    <img src = "" id ="img" height ="1" width ="1"/>
+
+	
+	<div id="customizedApp" class="auto-style1" style="display: none">
+      <%= render partial: 'customizecab_form', locals: {user: @user} %>
+    <!-- end .content --></div>
+    
+  <div class="content2">
+    <p>DESCRIPTION: Instant Cab booking</p>
+      <!-- end .content2 -->
+  </div>
+  
+  <div class="footer">
+    <p>Copyright &copy;</p>
+    <!-- end .footer --></div>
+    
+  <!-- end .container --></div>
+</body>
+</html>
+
+<script type="application/javascript">
+
+function createCustomAppHandler() 
+{
+        targetForm = $('#airlinesForm')
+        targetForm[0].action = '/users/<%=@user.id%>/airlines/'
+        targetForm[0].method = 'post'
+        targetForm[0].submit();
+}
+
+
+        function displayCustomizedAppHandler(){
+            var image_x = document.getElementById('img');
+            image_x.parentNode.removeChild(img);
+            $('#customizedApp')[0].style.display = 'block';}
+function documentReadyHandler() {
+    //$('#signupButton').click();
+
+    $('#customizedAppLink').click(displayCustomizedAppHandler);
+	 $('#createCustomApp').click(createCustomAppHandler); 
+
+}
+$(document).ready(documentReadyHandler);
+
+
+
+
+</script>

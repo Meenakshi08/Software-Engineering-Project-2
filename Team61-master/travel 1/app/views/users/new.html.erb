@@ -1,0 +1,42 @@
+<% @page_title = "Signup" %>
+
+ <div id="user_nav">
+  
+    <%= link_to "Log in", log_in_path %> |
+  <%= link_to "About Us", aboutus_path %></div>
+  
+  
+</div>
+
+<div class="Sign_Form">
+  <h1>Sign Up</h1>
+  <%= form_for(:user, :url => {:controller => 'users', :action => 'create'}) do |f| %>
+    
+    <% if @user.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @user.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div> 
+    <%end %>
+ 
+
+  
+    <p> Username:</br> <%= f.text_field :username%> </p>
+    <p> Email:</br> <%= f.text_field :email%> </p>
+    <p> Password:</br> <%= f.password_field :wpass%></p>
+    <p> First Name:</br> <%= f.text_field :first_name%> </p>
+    <p> Last Name:</br> <%= f.text_field :last_name%> </p>
+    <p> Date of Birth:</br> <%= f.date_field :dob%> </p>
+    <p> Contact number:</br> <%= f.telephone_field :contact%> </p>
+    <p> Agent ID:</br> <%= f.text_field :agent_id%> </p>
+    <p> Agent Post:</br> <%= f.text_field :post%> </p>
+    <p> Address:</br> <%= f.text_area :address%> </p>
+    
+    <%= f.submit :Signup %>
+  <% end %>
+ 
+</div>
